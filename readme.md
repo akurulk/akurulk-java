@@ -6,5 +6,5 @@ Implements the Java Converter to Convert Unicode into Legacy Fonts.
 
 Why
 ---
-Allow developers to render Sinhala On android native apps
+Allow developers to render Sinhala On android native apps using unicode
 
