@@ -1,4 +1,4 @@
-package com.kodeincloud.akurulk;
+package com.kodeincloud.akurulk.base;
 
 /**
  * Defines Sinhala Unicode Charactor Base

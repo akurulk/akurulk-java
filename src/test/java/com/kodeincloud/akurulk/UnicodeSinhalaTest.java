@@ -1,5 +1,7 @@
 package com.kodeincloud.akurulk;
 
+import com.kodeincloud.akurulk.base.UnicodeSinhala;
+
 import junit.framework.TestCase;
 
 public class UnicodeSinhalaTest extends TestCase {
