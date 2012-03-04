@@ -2,6 +2,7 @@ package com.kodeincloud.akurulk;
 
 import com.kodeincloud.akurulk.base.Tokenizer;
 import com.kodeincloud.akurulk.base.TokenizerListener;
+import com.kodeincloud.akurulk.legacy.Alphabat;
 
 /**
  *
@@ -10,6 +11,7 @@ import com.kodeincloud.akurulk.base.TokenizerListener;
 public class UnicodeStablizer {
 
 	private Tokenizer t = new Tokenizer();
+	private Alphabat alphabat = new Alphabat();
 	private ComplexFixes fixes = new ComplexFixes();
 	private StringBuffer stablized ;
 	private char[] halKura = new char[2];
@@ -33,7 +35,7 @@ public class UnicodeStablizer {
 			public void onVowel(char vowel) {
 				
 				flushHal();
-				stablized.append(vowel);
+				stablized.append(alphabat.get(vowel));
 			}
 			
 			public void onConsonant(char consonant) {
@@ -41,13 +43,13 @@ public class UnicodeStablizer {
 				
 				if(halKura[0] !=0 && consonant == (char) 0x0DBA) {
 					//for layanna add yansaya if hal akurukak exists
-					stablized.append(halKura[0]);
-					stablized.append((char)65419);
+					stablized.append(alphabat.get(halKura[0]));
+					stablized.append(alphabat.YANSAYA);
 					cleanHal();
 					
 				} else {
 					flushHal();
-					stablized.append(consonant);
+					stablized.append(alphabat.get(consonant));
 				}
 				
 			}
@@ -57,14 +59,14 @@ public class UnicodeStablizer {
 				if(halKura[0] !=0 && part1 == (char) 0x0DBA) {
 					//handling yansaya for mixed chartors
 					
-					stablized.append(halKura[0]);
+					stablized.append(alphabat.get(halKura[0]));
 					
-					Character fixed = fixes.get("" + part1 + part2);
+					String fixed = fixes.get("" + part1 + part2);
 					if(fixed != null) {
 						stablized.append(fixed);
 					} else {
-						stablized.append((char)65419);
-						stablized.append(part2);
+						stablized.append(alphabat.YANSAYA);
+						stablized.append(alphabat.get(part2));
 					}
 					
 					//done the job
@@ -72,7 +74,7 @@ public class UnicodeStablizer {
 				} 
 				
 				flushHal();
-				Character fixed = null;
+				String fixed = null;
 				
 				if(part2 == (char) 0x0DCA) {
 					//if this is HAL akuru
@@ -83,35 +85,42 @@ public class UnicodeStablizer {
 					stablized.append(fixed);
 				} else if(part2 == (char)0x0DD9) {
 					//for ae
-					stablized.append((char)0x0DD9);
-					stablized.append(part1);
+					stablized.append(alphabat.get((char)0x0DD9));
+					stablized.append(alphabat.get(part1));
 				} else if(part2 == (char)0x0DDA) {
 					//for diga ae
-					stablized.append((char)0x0DD9);
-					stablized.append(part1);
-					stablized.append((char) 0x0DCA);
+					stablized.append(alphabat.get((char)0x0DD9));
+					String fixed2 = fixes.get("" + part1 + (char) 0x0DCA);
+					if(fixed2 != null) {
+						stablized.append(fixed2);
+					} else {
+						stablized.append(alphabat.get(part1));
+						stablized.append(alphabat.get((char) 0x0DCA));
+					}
 				} else if(part2 == (char)0x0DDB) {
 					//for ei
-					stablized.append((char)0x0DDB);
-					stablized.append(part1);
+					stablized.append(alphabat.get((char)0x0DDB));
+					stablized.append(alphabat.get(part1));
 				} else if(part2 == (char)0x0DDC) {
 					//for o
-					stablized.append((char)0x0DD9);
-					stablized.append(part1);
-					stablized.append((char) 0x0DCF);
+					stablized.append(alphabat.get((char)0x0DD9));
+					stablized.append(alphabat.get(part1));
+					stablized.append(alphabat.get((char) 0x0DCF));
 				} else if(part2 == (char)0x0DDD) {
 					//for diga o
-					stablized.append((char)0x0DD9);
-					stablized.append(part1);
-					stablized.append((char) 65281);
+					stablized.append(alphabat.get((char)0x0DD9));
+					stablized.append(alphabat.get(part1));
+					stablized.append(alphabat.get((char) 0x0DCF)); ///ala pilla
+					stablized.append(alphabat.get((char) 0x0DCA)); //hal
+					
 				} else if(part2 == (char)0x0DDE) {
 					//for au
-					stablized.append((char)0x0DD9);
-					stablized.append(part1);
-					stablized.append((char) 0x0DDF);
+					stablized.append(alphabat.get((char)0x0DD9));
+					stablized.append(alphabat.get(part1));
+					stablized.append(alphabat.get((char) 0x0DDF));
 				} else {
-					stablized.append(part1);
-					stablized.append(part2);
+					stablized.append(alphabat.get(part1));
+					stablized.append(alphabat.get(part2));
 				}
 			}
 			
@@ -146,8 +155,14 @@ public class UnicodeStablizer {
 	private void flushHal() {
 		
 		if(halKura[0] != 0 && halKura[1] != 0) {
-			stablized.append(halKura[0]);
-			stablized.append(halKura[1]);
+			
+			String fixed = fixes.get("" + halKura[0] + halKura[1]);
+			if(fixed != null) {
+				stablized.append(fixed);
+			} else {
+				stablized.append(alphabat.get(halKura[0]));
+				stablized.append(alphabat.get(halKura[1]));
+			}
 		}
 		
 		cleanHal();

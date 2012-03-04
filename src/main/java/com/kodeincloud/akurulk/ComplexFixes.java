@@ -9,96 +9,102 @@ import java.util.HashMap;
  * 
  * This HashMap does that
  */
-public class ComplexFixes extends HashMap<String, Character> {
+public class ComplexFixes extends HashMap<String, String> {
 
 	public ComplexFixes() {
 		
 		//for AE
-		put("රැ",  (char) 65423);
+		put("රැ",  "" + (char) 948);
 		
 		//for AEE
-		put("රැ",  (char) 65424);
-		
-		//for I 
-		put("ක" + (char)0x0DD2,  (char) 65295);
-		put("ඛ" + (char)0x0DD2,  (char) 65304);
-		put("ච" + (char)0x0DD2,  (char) 65312);
-		put("ජ" + (char)0x0DD2,  (char) 65319);
-		put("ඡ" + (char)0x0DD2,  (char) 65326);
-		put("" + (char)0x0DA3 + (char)0x0DD2,  (char) 65333);
-		put("ට" + (char)0x0DD2,  (char) 65345);
-		put("ඨ" + (char)0x0DD2,  (char) 65351);
-		put("ඩ" + (char)0x0DD2,  (char) 65357);
-		put("ඪ" + (char)0x0DD2,  (char) 65363);
-		put("ණ" + (char)0x0DD2,  (char) 65369);
-		put("ථ" + (char)0x0DD2,  (char) 65374);
-		put("ද" + (char)0x0DD2,  (char) 65379);
-		put("ධ" + (char)0x0DD2,  (char) 65387);
-		put("ඳ" + (char)0x0DD2,  (char) 65393);
-		put("ඵ" + (char)0x0DD2,  (char) 65397);
-		put("බ" + (char)0x0DD2,  (char) 65403);
-		put("ම" + (char)0x0DD2,  (char) 65410);
-		put("ඹ" + (char)0x0DD2,  (char) 65417);
-		put("ර" + (char)0x0DD2,  (char) 65425);
-		put("ව" + (char)0x0DD2,  (char) 65436);
-		
-		//for Ie
-		put("ක" + (char)0x0DD3,  (char) 65296);
-		put("ඛ" + (char)0x0DD3,  (char) 65306);
-		put("ච" + (char)0x0DD3,  (char) 65313);
-		put("ජ" + (char)0x0DD3,  (char) 65320);
-		put("ඡ" + (char)0x0DD3,  (char) 65327);
-		put("" + (char)0x0DA3 + (char)0x0DD3,  (char) 65334);
-		put("ට" + (char)0x0DD3,  (char) 65346);
-		put("ඨ" + (char)0x0DD3,  (char) 65352);
-		put("ඩ" + (char)0x0DD3,  (char) 65358);
-		put("ඪ" + (char)0x0DD3,  (char) 65364);
-		put("ණ" + (char)0x0DD3,  (char) 65370);
-		put("ථ" + (char)0x0DD3,  (char) 65375);
-		put("ද" + (char)0x0DD3,  (char) 65380);
-		put("ධ" + (char)0x0DD3,  (char) 65388);
-		put("ඳ" + (char)0x0DD3,  (char) 65394);
-		put("ඵ" + (char)0x0DD3,  (char) 65398);
-		put("බ" + (char)0x0DD3,  (char) 65404);
-		put("ම" + (char)0x0DD3,  (char) 65411);
-		put("ඹ" + (char)0x0DD3,  (char) 65418);
-		put("ර" + (char)0x0DD3,  (char) 65426);
-		put("ව" + (char)0x0DD3,  (char) 65436);
-		
-		//for u
-		put("ක" + (char)0x0DD4,  (char) 65297);
-		put("" + (char)0x0DA4 + (char)0x0DD4,  (char) 65339);
-		put("ද" + (char)0x0DD4,  (char) 65381);
-		put("ඳ" + (char)0x0DD4,  (char) 65395);
-		put("ල" + (char)0x0DD4,  (char) 65433);
-		
-		//for uu
-		put("ක" + (char)0x0DD6,  (char) 65298);
-		put("" + (char)0x0DA5 + (char)0x0DD4,  (char) 65340);
-		put("ද" + (char)0x0DD6,  (char) 65382);
-		put("ඳ" + (char)0x0DD6,  (char) 65396);
-		put("ල" + (char)0x0DD6,  (char) 65434);
-		
-		//for hal
-		put("ක" + (char)0x0DCA,  (char) 65294);
-		put("ඛ" + (char)0x0DCA,  (char) 65303);
-		put("ච" + (char)0x0DCA,  (char) 65311);
-		put("ජ" + (char)0x0DCA,  (char) 65318);
-		put("ඡ" + (char)0x0DCA,  (char) 65325);
-		put("" + (char)0x0DCA + (char)0x0DD2,  (char) 65332);
-		put("ට" + (char)0x0DCA,  (char) 65344);
-		put("ඩ" + (char)0x0DCA,  (char) 65356);
-		put("ණ" + (char)0x0DCA,  (char) 65368);
-		put("ධ" + (char)0x0DCA,  (char) 65386);
-		put("ඵ" + (char)0x0DCA,  (char) 65396);
-		put("බ" + (char)0x0DCA,  (char) 65402);
-		put("ම" + (char)0x0DCA,  (char) 65409);
-		put("ඹ" + (char)0x0DCA,  (char) 65416);
-		put("ර" + (char)0x0DCA,  (char) 65424);
-		put("ව" + (char)0x0DCA,  (char) 65435);
-		
-		//for yansaya
-		put("ය" + (char)0x0DD4,  (char) 65420);
-		put("ය" + (char)0x0DD6,  (char) 65421);
+		put("රැ", "" +  (char) 964);
+//		
+//		//for I 
+//		put("ක" + (char)0x0DD2,  "" + (char) 65295);
+		put("ඛ" + (char)0x0DD2, "" +  (char) 1098);
+		put("ච" + (char)0x0DD2,  "" + (char) 1110);
+		put("ජ" + (char)0x0DD2,  "" + (char) 1141);
+		put("ඡ" + (char)0x0DD2,  "" + (char) 1154);
+		put("" + "" + (char)0x0DA3 + (char)0x0DD2, "" +  (char) 1076);
+		put("ට" + (char)0x0DD2,  "" + (char) 1125);
+		put("ඨ" + (char)0x0DD2,  "" + (char) 1093);
+		put("ඩ" + (char)0x0DD2,  "" + (char) 1129);
+		put("ඪ" + (char)0x0DD2,  "" + (char) 1107);
+//		put("ණ" + (char)0x0DD2, "" +  (char) 65369);
+		put("ථ" + (char)0x0DD2,  "" + (char) 1111);
+		put("ද" + (char)0x0DD2,  "" + (char) 1068);
+		put("ධ" + (char)0x0DD2, "" +  (char) 1135);
+		put("ඳ" + (char)0x0DD2,  "" + (char) 1063);
+		put("ඵ" + (char)0x0DD2,  "" + (char) 1122);
+		put("බ" + (char)0x0DD2,  "" + (char) 1137);
+		put("ම" + (char)0x0DD2,  "" + (char) 1142);
+		put("ඹ" + (char)0x0DD2,  "" + (char) 1145);
+		put("ර" + (char)0x0DD2, "" +  (char) 1106);
+		put("ව" + (char)0x0DD2, "" +  (char) 1150);
+//		
+//		//for Ie
+//		put("ක" + (char)0x0DD2, "" +  (char) 65295);
+		put("ඛ" + (char)0x0DD2, "" +  (char) 1100);
+		put("ච" + (char)0x0DD2, "" +  (char) 1115);
+		put("ජ" + (char)0x0DD2, "" +  (char) 1113);
+		put("ඡ" + (char)0x0DD2, "" +  (char) 1095);
+		put("" + "" + (char)0x0DA3 + (char)0x0DD2,  "" + (char) 1077);
+		put("ට" + (char)0x0DD2, "" +  (char) 1126);
+		put("ඨ" + (char)0x0DD2, "" +  (char) 1094);
+		put("ඩ" + (char)0x0DD2, "" +  (char) 1128);
+		put("ඪ" + (char)0x0DD2, "" +  (char) 1109);
+//		put("ණ" + (char)0x0DD2, "" +  (char) 65369);
+		put("ථ" + (char)0x0DD2, "" +  (char) 1112);
+		put("ද" + (char)0x0DD2,  "" + (char) 1101);
+		put("ධ" + (char)0x0DD2, "" +  (char) 1136);
+		put("ඳ" + (char)0x0DD2, "" +  (char) 1064);
+		put("ඵ" + (char)0x0DD2, "" +  (char) 1119);
+		put("බ" + (char)0x0DD2, "" +  (char) 1139);
+		put("ම" + (char)0x0DD2,  "" + (char) 1144);
+		put("ඹ" + (char)0x0DD2, "" +  (char) 1147);
+		put("ර" + (char)0x0DD2,  "" + (char) 1124);
+		put("ව" + (char)0x0DD2,  "" + (char) 1151);
+//		
+//		//for u
+		put("ක" + (char)0x0DD4,  "" + (char) 1009 + (char) 962);
+		put("ත" + (char)0x0DD4,  "" + (char) 960 + (char) 962);
+//		put("" +"" +  (char)0x0DA4 + (char)0x0DD4,  "" + (char) 1152);
+		put("ද" + (char)0x0DD4,  "" + (char) 1156);
+		put("ඳ" + (char)0x0DD4, "" +  (char) 1148);
+		put("ල" + (char)0x0DD4, "" +  (char) 1069);
+		put("ළ" + (char)0x0DD4, "" +  (char) 1092);
+		put("ර" + (char)0x0DD4, "" +  (char) 1015 + (char) 1002);
+//		
+//		//for uu
+		put("ක" + (char)0x0DD6,  "" + (char) 1009 + (char) 944);
+		put("ත" + (char)0x0DD6,  "" + (char) 960 + (char) 944);
+//		put("" +"" +  (char)0x0DA6 + (char)0x0DD4,  "" + (char) 1152);
+		put("ද" + (char)0x0DD6,  "" + (char) 1166);
+		put("ඳ" + (char)0x0DD6, "" +  (char) 1071);
+		put("ල" + (char)0x0DD6, "" +  (char) 1099);
+		put("ළ" + (char)0x0DD6, "" +  (char) 1092 + (char) 982);
+		put("ර" + (char)0x0DD6, "" +  (char) 1015 + (char) 970);
+//		
+//		//for hal
+//		put("ක" + (char)0x0DCA, "" +  (char) 65294);
+		put("ඛ" + (char)0x0DCA,"" +  (char) 1097);
+		put("ච" + (char)0x0DCA, "" +  (char) 1102);
+		put("ජ" + (char)0x0DCA, "" +  (char) 1103);
+		put("ඡ" + (char)0x0DCA, "" +  (char) 1155);
+//		put("" + (char)0x0DCA + (char)0x0DD2, "" +  (char) 65332);
+		put("ට" + (char)0x0DCA,  "" + (char) 1121);
+		put("ඩ" + (char)0x0DCA, "" +  (char) 1127);
+//		put("ණ" + (char)0x0DCA, "" +  (char) 65368);
+		put("ධ" + (char)0x0DCA, "" +  (char) 1133);
+//		put("ඵ" + (char)0x0DCA, "" +  (char) 65396);
+		put("බ" + (char)0x0DCA, "" +  (char) 1138);
+		put("ම" + (char)0x0DCA, "" +  (char) 1140);
+//		put("ඹ" + (char)0x0DCA, "" +  (char) 1081);
+		put("ර" + (char)0x0DCA, "" +  (char) 1091);
+		put("ව" + (char)0x0DCA, "" +  (char) 1146);
+//		
+//		//for yansaya
+//		put("ය" + (char)0x0DD4, "" +  (char) 65420);
+//		put("ය" + (char)0x0DD6,  "" + (char) 65421);
 	}
 }
